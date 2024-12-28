@@ -1,5 +1,4 @@
 from django.db import models
-from PIL import Image
 # from django.contrib.auth.models import User
 
 # Create your models here.
