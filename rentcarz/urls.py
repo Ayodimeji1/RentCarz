@@ -17,8 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
+from car import views
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register('cars', views.CarViewSet, basename='cars')
+router.register('car_availability', views.CarViewSet, basename='car_availability')
+router.register('booking', views.CarViewSet, basename='bookings')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('carowner/', include('carowner.urls'))
+    path('', include(router.urls)),
 ] + debug_toolbar_urls()

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'carowner',
     'car', 
+    'booking',
     'debug_toolbar',
     'rest_framework',
 ]
@@ -88,7 +89,7 @@ INTERNAL_IPS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'cars_db',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
