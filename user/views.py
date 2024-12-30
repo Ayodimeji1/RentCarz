@@ -9,8 +9,4 @@ from rest_framework.permissions import IsAuthenticated
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-    def get_permissions(self):
-        if self.action == 'create':
-            return []  # Allow unauthenticated users to register
-        return [IsAuthenticated()]
+    # permission_classes = [IsAuthenticated] 
