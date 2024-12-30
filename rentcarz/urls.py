@@ -20,13 +20,14 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from car import views
 from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter()
-router.register('cars', views.CarViewSet, basename='cars')
-router.register('car_availability', views.CarViewSet, basename='car_availability')
-router.register('booking', views.CarViewSet, basename='bookings')
+
+# router.register('car_availability', views.CarViewSet, basename='car_availability')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('api/v1/user/', include('user.urls')),
+    path('api/v1/car/', include('car.urls')),
+    path('api/v1/booking/', include('booking.urls')),   
+    # path('api/v1/availability/', include('availability.urls')),
 ] + debug_toolbar_urls()
