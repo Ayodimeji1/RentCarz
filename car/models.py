@@ -11,7 +11,7 @@ class Car(models.Model):
     pictures = models.ImageField()
 
     def __str__(self):
-        return self.model+self.brand
+        return f"{self.brand} {self.model}"
 
 
 class CarAvailability(models.Model):
@@ -19,12 +19,11 @@ class CarAvailability(models.Model):
     date = models.DateTimeField(auto_now=True)
     is_available = models.BooleanField(default=True)
 
-    class Meta: 
-        unique_together = ('car', 'date')
-        verbose_name = 'Car Availability'
-        verbose_name_plural = 'Car Availabilities'
-
+    class Meta:  
+        unique_together = ('car', 'date') 
+        verbose_name = 'Available Car'
+ 
     def __str__(self):
-        return f"{self.car.name} - {self.date.strftime('%Y-%m-%d %H:%M:%S')} - {'Available' if self.is_available else 'Unavailable'}"
+        return f"{self.car.model}; {'Available' if self.is_available else 'Unavailable'}"
 
     
