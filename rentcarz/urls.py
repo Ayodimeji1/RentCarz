@@ -26,8 +26,8 @@ from rest_framework.routers import DefaultRouter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/user/', include('user.urls')),
-    path('api/v1/car/', include('car.urls')),
-    path('api/v1/booking/', include('booking.urls')),   
+    path('api/v1/', include('user.urls')),
+    path('api/v1/', include('car.urls')),
+    path('api/v1/', include('booking.urls')),   
     # path('api/v1/availability/', include('availability.urls')),
 ] + debug_toolbar_urls()

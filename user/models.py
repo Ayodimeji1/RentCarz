@@ -4,10 +4,10 @@ from django.contrib.auth.models import AbstractUser
 # Custom User model
 
 class User(AbstractUser):
-    ROLE_CHOICES = [
+    ROLE_CHOICES = (
         ('customer', 'Customer'),
         ('owner', 'Owner'),
-    ]
+    )
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='customer')
 
     def __str__(self):
@@ -21,4 +21,4 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='profile_image', blank=True, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username  

@@ -16,9 +16,15 @@ class Car(models.Model):
 
 class CarAvailability(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="availability")
-    date = models.DateField()
+    date = models.DateTimeField(auto_now=True)
     is_available = models.BooleanField(default=True)
 
-    class Meta(): 
+    class Meta: 
         unique_together = ('car', 'date')
+        verbose_name = 'Car Availability'
+        verbose_name_plural = 'Car Availabilities'
+
+    def __str__(self):
+        return f"{self.car.name} - {self.date.strftime('%Y-%m-%d %H:%M:%S')} - {'Available' if self.is_available else 'Unavailable'}"
+
     

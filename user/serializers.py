@@ -5,7 +5,7 @@ from .models import Profile, User
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['__all__']
+        fields = ['phone_number', 'image'],
 
 
 class UserSerializer(serializers.ModelSerializer):
