@@ -9,7 +9,7 @@ class CarAvailabilitySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class CarSerializer(serializers.ModelSerializer):
-    availability = CarAvailabilitySerializer(many=True, read_only=True)  # Nested serialization
+    availability = CarAvailabilitySerializer(many=True, read_only=True) 
     class Meta:
         model = Car
         fields = "__all__"

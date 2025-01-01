@@ -1,13 +1,10 @@
-from .models import Car, CarAvailability
-from .serializers import CarSerializer, CarAvailabilitySerializer
-from rest_framework.viewsets import ModelViewSet # type: ignore
+from .models import Car
+from .serializers import CarSerializer
+from rest_framework import generics
 # from rest_framework.filters import SearchFilter, OrderingFilter
 
 
-# class CarAvailabiltyViewSet(ModelViewSet):
-#     queryset = CarAvailability.objects.all()
-#     serializer_class = CarAvailabilitySerializer
-class CarViewSet(ModelViewSet):
+class CarListView(generics.ListCreateAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
     # filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
@@ -15,6 +12,6 @@ class CarViewSet(ModelViewSet):
     # search_fields = ['name', 'description']
     # ordering_fields = ['price', 'created_at']
  
-
-
-
+class CarDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset=Car.objects.all()
+    serializer_class= CarSerializer

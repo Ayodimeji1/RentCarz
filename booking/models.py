@@ -9,7 +9,7 @@ class Booking(models.Model):
         ('Confirmed', 'Confirmed'),
         ('Cancelled', 'Cancelled'),
     ]
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE)    
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="bookings")
     start_date = models.DateField()
     end_date = models.DateField()

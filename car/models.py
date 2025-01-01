@@ -16,7 +16,7 @@ class Car(models.Model):
 
 class CarAvailability(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name="availability")
-    date = models.DateTimeField(auto_now=True)
+    date = models.DateTimeField(auto_now_add=True)
     is_available = models.BooleanField(default=True)
 
     class Meta:  
