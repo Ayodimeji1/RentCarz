@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
 from car import views
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 
 
@@ -31,3 +33,6 @@ urlpatterns = [
     path('api/v1/', include('booking.urls')),   
     # path('api/v1/availability/', include('availability.urls')),
 ] + debug_toolbar_urls()
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
